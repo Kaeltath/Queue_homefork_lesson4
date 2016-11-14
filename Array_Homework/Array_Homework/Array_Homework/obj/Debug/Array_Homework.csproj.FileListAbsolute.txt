@@ -1,0 +1,6 @@
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\bin\Debug\Array_Homework.exe.config
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\obj\Debug\Array_Homework.csprojResolveAssemblyReference.cache
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\bin\Debug\Array_Homework.exe
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\bin\Debug\Array_Homework.pdb
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\obj\Debug\Array_Homework.exe
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\Array_Homework\Array_Homework\Array_Homework\obj\Debug\Array_Homework.pdb
