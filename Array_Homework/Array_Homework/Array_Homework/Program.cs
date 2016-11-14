@@ -43,7 +43,7 @@ namespace Array_Homework
             Console.ReadLine();
         }
 
-       static int[] Sorting (int[] sortArray)
+       static void Sorting (int[] sortArray)
         {
             for (int i = 0; i < sortArray.Length; i++)
             {
@@ -58,7 +58,6 @@ namespace Array_Homework
 
                 }
             }
-          return sortArray;
-          }
+         }
     }
 }
