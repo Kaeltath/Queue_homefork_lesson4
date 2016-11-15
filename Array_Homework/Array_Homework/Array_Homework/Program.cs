@@ -14,15 +14,15 @@ namespace Array_Homework
         {
             int number = 0;
             Console.WriteLine("Enter number of items in array");
-             if (!Int32.TryParse(Console.ReadLine(), out number))
+            if (!Int32.TryParse(Console.ReadLine(), out number))
             {
-               Console.WriteLine("unsuported expression");
-               Console.ReadLine();
-               return;
+                Console.WriteLine("unsuported expression");
+                Console.ReadLine();
+                return;
             }
 
             int[] testArray = new int[number];
-            Console.WriteLine("Please enter " + number + " of numbers separated by pressing Enter");
+            Console.WriteLine("Please input " + number + " of numbers separated by pressing Enter");
             for (int elem = 0; elem < testArray.Length; elem++)
             {
                 int newEl = 1;
@@ -35,29 +35,29 @@ namespace Array_Homework
                 }
                 testArray[elem] = newEl;
             }
-            Sorting(testArray);
-            Console.WriteLine("minimal number in array");
-            Console.WriteLine(testArray[0]);
-            Console.WriteLine("maximum number in array");
-            Console.WriteLine(testArray[(number - 1)]);
-            Console.ReadLine();
+            int minElem = testArray[0];
+            int maxElem = testArray[0];
+            MinMax(ref minElem ,  ref maxElem , testArray);
+            Console.WriteLine("minimal number in array is "+minElem);
+            Console.WriteLine("maximum number in array is "+maxElem);
+            Console.ReadKey();
+
         }
 
-       static void Sorting (int[] sortArray)
+        private static void MinMax(ref int a, ref int b , int[] tempArray)
         {
-            for (int i = 0; i < sortArray.Length; i++)
+            for (int i = 0; i < tempArray.Length; i++)
             {
-                for (int m = 0; m < sortArray.Length -1 -i; m++)
+                if (a > tempArray[i])
                 {
-                    if (sortArray[m] > sortArray[m + 1])
-                    {
-                        int temp = sortArray[m];
-                        sortArray[m] = sortArray[m+1];
-                        sortArray[m+1] = temp;
-                    }
-
+                    a = tempArray[i];
                 }
+                else if (b < tempArray[i])
+                {
+                    b = tempArray[i];
+                }
+                
             }
-         }
+        }
     }
 }
