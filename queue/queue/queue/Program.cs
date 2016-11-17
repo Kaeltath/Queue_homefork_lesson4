@@ -9,82 +9,83 @@ namespace queue
 {
     internal class Program
     {
+
+        static int[] queue = new int[3];
+        //static int head = 0;
+        static int tail, head, countEnque, countDeque;
+        //int countenqueue = 0;
+        //int countdequeue = 0;
         private static void Main(string[] args)
         {
 
-            int[] queue = new int[3];
-            int head = 0;
-            int tail = 0;
-            int countenqueue = 0;
-            int countdequeue =0;
             for (int j = 1; j < 40; j++)
             {
                 
                     int value = Convert.ToInt32(Console.ReadLine());
-                    Enqueue(queue, value, head, ref tail, ref countenqueue, countdequeue);
+                    Enqueue(value);
                     //isFull(countdequeue, countenqueue, tail, head, queue);
                 
                
                 if (j % 2 == 0)
                 {
-                    Dequeue(queue, ref head, tail, countenqueue, ref countdequeue);
+                    Dequeue();
                     //isEmpty(countdequeue, countenqueue, tail, head);
                 }
               
             }
            
         }
-        static void Enqueue(int[] pushtoarray, int z, int x, ref int m, ref int coen, int code)
+        static void Enqueue(int z)
          {
-             coen = coen + 1;
-             if (coen - code > pushtoarray.Length)
+             countEnque = countEnque + 1;
+             if (countEnque - countDeque > queue.Length)
              {
                  Console.WriteLine(" item overlaped...");
                  Console.ReadLine();
                  Environment.Exit(0);
              }
-             if (m < pushtoarray.Length -1)
+             if (tail < queue.Length - 1)
              {
-                 pushtoarray[m] = z;
-                 m = m + 1;
+                 queue[tail] = z;
+                 tail = tail + 1;
              }
              else
              {
-                 pushtoarray[m] = z;
-                 m = 0;
+                 queue[tail] = z;
+                 tail = 0;
              }
              
          }
 
-        static bool Dequeue(int[] popfromarray, ref int x, int m, int coen, ref int code)
+        static bool Dequeue()
          {
-             if (code == coen && x == m)
+             if (countDeque == countEnque && head == tail)
              {
                  Console.WriteLine("queue is empty");
                  Console.ReadLine();
                  return false;
                  
              }
-             if (x < popfromarray.Length -1)
+             if (head < queue.Length - 1)
              {
-                 Console.WriteLine(popfromarray[x]);
-                 x = x + 1;
-                 code = code + 1;
+                 Console.WriteLine(queue[head]);
+                 head = head + 1;
+                 countDeque = countDeque + 1;
                  return true;
              }
              else
              {
-                 Console.WriteLine(popfromarray[x]);
-                 x = 0;
-                 code = code + 1;
+                 Console.WriteLine(queue[head]);
+                 head = 0;
+                 countDeque = countDeque + 1;
                  return true;
              }
              
             }
 
-        private static void isFull(int code, int coen, int x, int m, int[] length)
+        private static void isFull()
         {
-            if (coen - code > length.Length-1)
+            if (countEnque - countDeque > queue.Length - 1)
             {
                 Console.WriteLine("queue is full don't add new elements untill enqeue firs older");
                 Console.ReadLine();
@@ -95,8 +96,8 @@ namespace queue
             }
         }
 
-        static void isEmpty(int code, int coen, int x, int m){
-            if (code == coen && x == m)
+        static void isEmpty(){
+            if (countDeque == countEnque && head == tail)
             {
                 Console.WriteLine("queue is empty");
                 Console.ReadLine();
