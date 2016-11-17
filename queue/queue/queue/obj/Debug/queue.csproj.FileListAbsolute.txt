@@ -1,0 +1,6 @@
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\bin\Debug\queue.exe.config
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\obj\Debug\queue.csprojResolveAssemblyReference.cache
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\bin\Debug\queue.exe
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\bin\Debug\queue.pdb
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\obj\Debug\queue.exe
+C:\Users\Администратор\Documents\Visual Studio 2012\Projects\queue\queue\queue\obj\Debug\queue.pdb
