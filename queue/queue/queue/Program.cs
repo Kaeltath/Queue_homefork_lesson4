@@ -17,27 +17,35 @@ namespace queue
         //int countdequeue = 0;
         private static void Main(string[] args)
         {
-
-            for (int j = 1; j < 40; j++)
+            int dequevaleue = 0;
+            for (int j = 3; j < 40; j++)
             {
                 
                     int value = Convert.ToInt32(Console.ReadLine());
                     Enqueue(value);
                     //isFull(countdequeue, countenqueue, tail, head, queue);
                 
-               
+
                 if (j % 2 == 0)
                 {
-                    Dequeue();
+                    if (Dequeue(out dequevaleue))
+                    {
+                        Console.WriteLine(dequevaleue);
+                    }
+                    else
+                    {
+                        Console.WriteLine("queue is empty");
+                    }
+                }
                     //isEmpty(countdequeue, countenqueue, tail, head);
                 }
               
             }
-           
-        }
+         
+       
         static void Enqueue(int z)
          {
-             countEnque = countEnque + 1;
+             countEnque++;
              if (countEnque - countDeque > queue.Length)
              {
                  Console.WriteLine(" item overlaped...");
@@ -48,6 +56,7 @@ namespace queue
              {
                  queue[tail] = z;
                  tail = tail + 1;
+
              }
              else
              {
@@ -57,29 +66,27 @@ namespace queue
              
          }
 
-        static bool Dequeue()
+        private static bool Dequeue(out int value)
          {
              if (countDeque == countEnque && head == tail)
              {
-                 Console.WriteLine("queue is empty");
-                 Console.ReadLine();
+                 value = 0;
                  return false;
                  
              }
              if (head < queue.Length - 1)
              {
-                 Console.WriteLine(queue[head]);
+                 value = queue[head];
                  head = head + 1;
-                 countDeque = countDeque + 1;
+                 countDeque++;
                  return true;
              }
-             else
-             {
-                 Console.WriteLine(queue[head]);
-                 head = 0;
-                 countDeque = countDeque + 1;
-                 return true;
-             }
+             
+             value = queue[head];
+             head = 0;
+             countDeque++;
+             return true;
+             
              
             }
 
