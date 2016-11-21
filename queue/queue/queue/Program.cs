@@ -11,10 +11,7 @@ namespace queue
     {
 
         static int[] queue = new int[3];
-        //static int head = 0;
-        static int tail, head, countEnque, countDeque;
-        //int countenqueue = 0;
-        //int countdequeue = 0;
+        static int tail, head, counter;
         private static void Main(string[] args)
         {
             int dequevaleue = 0;
@@ -23,7 +20,7 @@ namespace queue
                 
                     int value = Convert.ToInt32(Console.ReadLine());
                     Enqueue(value);
-                    //isFull(countdequeue, countenqueue, tail, head, queue);
+                    //isFull();
                 
 
                 if (j % 2 == 0)
@@ -37,7 +34,7 @@ namespace queue
                         Console.WriteLine("queue is empty");
                     }
                 }
-                    //isEmpty(countdequeue, countenqueue, tail, head);
+                    //isEmpty();
                 }
               
             }
@@ -45,8 +42,8 @@ namespace queue
        
         static void Enqueue(int z)
          {
-             countEnque++;
-             if (countEnque - countDeque > queue.Length)
+             counter++;
+             if (counter > queue.Length)
              {
                  Console.WriteLine(" item overlaped...");
                  Console.ReadLine();
@@ -55,7 +52,7 @@ namespace queue
              if (tail < queue.Length - 1)
              {
                  queue[tail] = z;
-                 tail = tail + 1;
+                 tail ++;
 
              }
              else
@@ -68,7 +65,7 @@ namespace queue
 
         private static bool Dequeue(out int value)
          {
-             if (countDeque == countEnque && head == tail)
+             if ( counter==0)
              {
                  value = 0;
                  return false;
@@ -77,14 +74,14 @@ namespace queue
              if (head < queue.Length - 1)
              {
                  value = queue[head];
-                 head = head + 1;
-                 countDeque++;
+                 head ++;
+                 counter--;
                  return true;
              }
              
              value = queue[head];
              head = 0;
-             countDeque++;
+             counter--;
              return true;
              
              
@@ -92,10 +89,10 @@ namespace queue
 
         private static void isFull()
         {
-            if (countEnque - countDeque > queue.Length - 1)
+            if (counter > queue.Length - 1)
             {
-                Console.WriteLine("queue is full don't add new elements untill enqeue firs older");
-                Console.ReadLine();
+                Console.WriteLine("queue is full don't add new elements untill enqeue older items");
+                //Console.ReadLine();
             }
             else
             {
@@ -104,7 +101,7 @@ namespace queue
         }
 
         static void isEmpty(){
-            if (countDeque == countEnque && head == tail)
+            if (counter == 0)
             {
                 Console.WriteLine("queue is empty");
                 Console.ReadLine();
